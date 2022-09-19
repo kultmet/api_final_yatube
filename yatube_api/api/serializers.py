@@ -55,5 +55,7 @@ class FollowSerializer(serializers.ModelSerializer):
 
     def validate_following(self, value):
         if value == self._context['request'].user:
-            raise serializers.ValidationError("На себя подписываться безсмысленно!")
+            raise serializers.ValidationError(
+                "На себя подписываться безсмысленно!"
+            )
         return value
