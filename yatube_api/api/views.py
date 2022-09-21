@@ -51,10 +51,9 @@ class GroupVeiwSet(viewsets.ReadOnlyModelViewSet):
 
 
 class ReadOrCreateFollowForUser(
-    mixins.ListModelMixin,
-    mixins.CreateModelMixin,
-    viewsets.GenericViewSet):
+    mixins.ListModelMixin,mixins.CreateModelMixin,viewsets.GenericViewSet):
     pass
+
 
 
 class FollowViewSet(ReadOrCreateFollowForUser):
