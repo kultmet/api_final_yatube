@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
 
-from rest_framework import viewsets, filters
+from rest_framework import viewsets, filters, mixins
 from rest_framework.permissions import (
     IsAuthenticatedOrReadOnly,
     IsAuthenticated
@@ -50,7 +50,14 @@ class GroupVeiwSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
 
-class FollowViewSet(viewsets.ModelViewSet):
+class ReadOrCreateFollowForUser(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    viewsets.GenericViewSet):
+    pass
+
+
+class FollowViewSet(ReadOrCreateFollowForUser):
     serializer_class = FollowSerializer
     permission_classes = (IsAuthenticated,)
     filter_backends = (filters.SearchFilter,)
