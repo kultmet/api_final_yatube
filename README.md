@@ -5,7 +5,7 @@ api final
 
 Клонировать репозиторий и перейти в него в командной строке:
 
-<code>git clone https://github.com/yandex-praktikum/kittygram.git</code><br>
+<code>git clone https://github.com/kultmet/api_final_yatube.git</code><br>
 
 <code>cd <ваша_папка></code><br>
 
